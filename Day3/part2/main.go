@@ -24,7 +24,8 @@ type order struct {
 func main() {
 	const gridX = 2000
 	const gridY = 2000
-	grid := [gridX][gridY]fabricPiece{}
+	// grid := [gridX][gridY]fabricPiece{}
+	var grid [][]fabricPiece
 
 	inputArr := getInput()
 	for _, j := range inputArr {
@@ -65,7 +66,7 @@ func main() {
 
 	fmt.Print((fmt.Sprintf("\n\n**************\nID with no Claims: %v", noClaim)))
 }
-func checkClaim(claim order, grid [2000][2000]fabricPiece) (string, error) {
+func checkClaim(claim order, grid [][]fabricPiece) (string, error) {
 	for i := claim.OffsetLeft; i <= claim.OffsetLeft+claim.Width-1; i++ {
 		for j := claim.OffsetTop; j <= claim.OffsetTop+claim.Length-1; j++ {
 			// fmt.Println(grid[i][j])
